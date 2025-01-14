@@ -1,0 +1,450 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #1e1e1e, #f39c12);
+    margin: 0;
+    padding: 0;
+}
+
+.unique-navigation {
+    display: flex;
+    justify-content: center;
+    background-color: #212121;
+    padding: 10px;
+    gap: 20px;
+    border-bottom: 4px solid #f39c12;
+}
+
+.unique-navigation a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    background-color: #444;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.unique-navigation a:hover {
+    background-color: #f39c12;
+    transform: scale(1.05);
+}
+
+.unique-container {
+    width: 85%;
+    margin: 30px auto;
+    padding: 30px;
+    background: #222;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #1e1e1e, #f39c12);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #f39c12;
+    margin-bottom: 20px;
+}
+
+.student-cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.7), rgba(231, 126, 34, 0.7)),
+                url('path_to_image.jpg') no-repeat center center / cover;
+    border-radius: 25px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    width: 325px;
+    margin: 20px;
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h2 {
+    margin: 0%;
+    font-size: 20px;
+    color: #ff7e5f;
+    text-align: left;
+}
+
+.card p {
+    margin: 5px 0;
+    color: #ecf0f1;
+    text-align: left;
+}
+
+.card p span {
+    color: #303030;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.card .details {
+    color: #fff;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 250px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.card .editable input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    background: #f39c12;
+    color: #212121;
+    font-size: 14px;
+}
+
+.card .editable input:focus {
+    border-color: #f39c12;
+    outline: none;
+}
+
+.card .edit-btn {
+    background-color: #f39c12;
+    color: white;
+    padding: 10px;
+    width: 250px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.card .edit-btn:hover {
+    background-color: #d35400;
+    transform: scale(1.05);
+}
+
+/* Стиль для модального окна */
+.edit-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.edit-modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.edit-modal-content {
+    background: linear-gradient(135deg, #2c3e50, #e67e22);
+    padding: 30px;
+    border-radius: 25px;
+    width: 500px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.edit-modal-content h2 {
+    font-size: 24px;
+    color: #ff7e5f;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.edit-modal-content input {
+    width: calc(100% - 20px); /* Уменьшаем ширину на 20px, чтобы добавить отступ справа */
+    padding: 12px;
+    margin: 15px 0; /* Равные отступы сверху и снизу */
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f39c12;
+    color: #212121;
+    font-size: 16px;
+    transition: border 0.3s ease;
+    margin-right: 10px; /* Добавляем отступ справа */
+}
+
+.edit-modal-content input:focus {
+    border-color: #f39c12;
+    outline: none;
+}
+
+.edit-modal-content button {
+    background-color: #f39c12;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.edit-modal-content button:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
+
+/* Стилизуем кнопку отмены */
+#cancelEdit {
+    background-color: #e74c3c;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#cancelEdit:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Закругленные углы и плавные переходы для кнопок */
+button, input {
+    border-radius: 10px;
+}
+
+.add-student-card {
+    background: linear-gradient(135deg, #ff5733, #ff8d1a);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    margin: 15px 5px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    cursor: pointer;
+}
+
+.add-btn {
+    background-color: #ff6f47;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-btn:hover {
+    background-color: #ff855e;
+    transform: scale(1.05);
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.edit-modal-content {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Основной стиль для скроллбара */
+.edit-modal-content::-webkit-scrollbar {
+    width: 12px; /* Ширина скроллбара */
+    background: #2c3e50; /* Фон области скроллбара */
+    border-radius: 10px; /* Закругление */
+}
+
+/* Цвет и ширина ползунка (ползунка прокрутки) */
+.edit-modal-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #f39c12, #e67e22); /* Градиентный ползунок */
+    border-radius: 10px; /* Закругление краев */
+    border: 3px solid #2c3e50; /* Пробел между ползунком и фоном */
+}
+
+/* При наведении на ползунок */
+.edit-modal-content::-webkit-scrollbar-thumb:hover {
+    background: #ff8c2f; /* Цвет при наведении */
+}
+
+/* Если в браузере используются нестандартные скроллбары */
+.edit-modal-content {
+    scrollbar-width: thin; /* Узкий скроллбар (для Firefox) */
+    scrollbar-color: #f39c12 #2c3e50; /* Цвет ползунка и фона */
+}
+
+/* Стиль для формы добавления студента */
+.myForm {
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.myForm input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f39c12;
+    color: #212121;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+.myForm input:focus {
+    border-color: #f39c12;
+    outline: none;
+}
+
+.myForm .button_send_class {
+    background-color: #f39c12;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.myForm .button_send_class:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
+
+.myForm .type-input-text {
+    color: #fff;
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #f39c12;
+    margin-bottom: 20px;
+}
+
+/* Декоративные элементы для формы */
+.myForm input[type="text"],
+.myForm input[type="email"],
+.myForm input[type="tel"],
+.myForm input[type="number"],
+.myForm input[type="date"] {
+    background: #f39c12;
+    color: #212121;
+}
+
+.myForm .type-input-text {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #f39c12;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    padding: 10px;
+    width: 300px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+#searchButton {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#searchButton:hover {
+    background-color: #e67e22;
+}
+
+#searchField {
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #bb610000;
+    border-radius: 25px;
+    background-color: #bb6000d4;
+    font-size: 16px;
+    width: auto;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+#showAllButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+#showAllButton:hover {
+    background-color: #218838;
+}

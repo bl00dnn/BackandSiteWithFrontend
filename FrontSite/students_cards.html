@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студенты</title>
+    <link rel="stylesheet" href="cssStyle/styleForCard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="unique-container">
+        <div class="container">
+            <h1>Добавление студентов</h1>
+            <form class="myForm">
+                <div class="type-input-text">Фамилия:</div>
+                <input type="text" name="lastName" placeholder="Фамилия" required>
+    
+                <div class="type-input-text">Имя:</div>
+                <input type="text" name="firstName" placeholder="Имя" required>
+    
+                <div class="type-input-text">Отчество:</div>
+                <input type="text" name="middleName" placeholder="Отчество" required>
+    
+                <div class="type-input-text">Возраст:</div>
+                <input type="number" name="age" placeholder="Возраст" required>
+    
+                <div class="type-input-text">Пол:</div>
+                <input type="text" name="gender" placeholder="Пол" required>
+    
+                <div class="type-input-text">Email:</div>
+                <input type="email" name="email" placeholder="Email" required>
+    
+                <div class="type-input-text">Адрес:</div>
+                <input type="text" name="address" placeholder="Адрес" required>
+    
+                <div class="type-input-text">Телефон:</div>
+                <input type="tel" name="phone" placeholder="Телефон" required>
+    
+                <div class="type-input-text">Группа:</div>
+                <input type="text" name="studentGroup" placeholder="Группа" required>
+    
+                <div class="type-input-text">Форма обучения:</div>
+                <input type="text" name="formOfEducation" placeholder="Форма обучения" required>
+    
+                <div class="type-input-text">Дата зачисления:</div>
+                <input type="text" name="dateOfAdmission" placeholder="dd.mm.yyyy" required>
+    
+                <div class="button_send">
+                    <button type="submit" class="button_send_class">Отправить</button>
+                </div>
+            </form>
+        </div>
+        <h1>Карточки студентов</h1>
+        <div class="search-container">
+            <select id="searchField">
+                <option value="id">ID</option>
+                <option value="studentGroup">Группа</option>
+                <option value="age">Возраст</option>
+                <option value="email">Email</option>
+                <option value="gender">Пол</option>
+                <option value="address">Адрес</option>
+                <option value="phone">Телефон</option>
+                <option value="formOfEducation">Форма обучения</option>
+                <option value="dateOfAdmission">Дата зачисления</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="Поиск" />
+            <button id="searchButton">Поиск</button>
+        </div>
+        <div class="search-container">
+            <button id="showAllButton">Показать всех</button>
+        </div>
+        
+        
+        <div class="student-cards-container" id="studentCardsContainer">
+        </div>
+
+    </div>
+    
+<div id="editModal" class="edit-modal">
+    <div class="edit-modal-content">
+        <h2>Редактировать данные студента</h2>
+        <form id="editForm">
+            <label for="editLastName">Фамилия:</label>
+            <input type="text" id="editLastName" name="lastName" required>
+
+            <label for="editFirstName">Имя:</label>
+            <input type="text" id="editFirstName" name="firstName" required>
+
+            <label for="editMiddleName">Отчество:</label>
+            <input type="text" id="editMiddleName" name="middleName" required>
+
+            <label for="editAge">Возраст:</label>
+            <input type="number" id="editAge" name="age" required>
+
+            <label for="editGender">Пол:</label>
+            <input type="text" id="editGender" name="gender" required>
+
+            <label for="editEmail">Email:</label>
+            <input type="email" id="editEmail" name="email" required>
+
+            <label for="editAddress">Адрес:</label>
+            <input type="text" id="editAddress" name="address" required>
+            
+            <label for="editPhone">Телефон:</label>
+            <input type="text" id="editPhone" name="phone" required>
+
+            <label for="editGroup">Группа:</label>
+            <input type="text" id="editGroup" name="studentGroup" required>
+
+            <label for="editFormOfEducation">Форма обучения:</label>
+            <input type="text" id="editFormOfEducation" name="formOfEducation" required>
+            
+            <label for="editDateOfAdmission">Дата зачисления:</label>
+            <input type="text" id="editDateOfAdmission" name="dateOfAdmission" required>
+
+            <button type="submit">Сохранить изменения</button>
+            <button type="button" id="cancelEdit">Отмена</button>
+        </form>
+    </div>
+</div>
+
+    <script src="jsFile/studentsCards.js"></script>
+</body>
+</html>
